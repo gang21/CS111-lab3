@@ -22,22 +22,25 @@ To test the correctness and implementation of the hash table, the same test was 
 ```shell
 //test code
 ./hash-table-tester -t 8 -s 50000
-
-//Test 1 Results
+```
+Test 1 Results
+```
 Generation: 72,600 usec
 Hash table base: 362,071 usec
   - 0 missing
 Hash table v1: 703,576 usec
   - 0 missing
-
-//Test 2 Results
+```
+Test 2 Results
+```
 Generation: 55,767 usec
 Hash table base: 333,800 usec
   - 0 missing
 Hash table v1: 689,031 usec
   - 0 missing
-
-//Test 3 Results
+```
+Test 3 Results
+```
 Generation: 66,960 usec
 Hash table base: 348,512 usec
   - 0 missing
