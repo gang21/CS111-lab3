@@ -47,7 +47,7 @@ Hash table base: 348,512 usec
 Hash table v1: 695,649 usec
   - 0 missing
 ```
-There are 0 missing entries in the v1 hash table which means that the implementation of concurrency is correct. However, the time it takes for the v1 implementation is about doubled compared to the base implementation. This is because of the creation and destruction of the mutex locks each time an entry is added. Everytime an entry is added to the hash table, the program creates a lock, locks the lock, adds the entry, unlocks the lock, and then destroys the lock. Thus, this created a lot of overhead that caused the performance of the v1 implementation to be slower than the base implementation. 
+There are 0 missing entries in the v1 hash table which means that the implementation of concurrency is correct. However, the time it takes for the v1 implementation is about doubled compared to the base implementation. This is because of the thread overhead with the lock. Since there is only one lock, each thread must share the same lock and only one thread can go through the lock at a time. Thus, even though there are multiple threads running concurrently, there is a bottleneck because of the lock, which causes more overhead and decreases performance time. 
 
 ## Second Implementation
 In the `hash_table_v2_add_entry` function, a fine-grained locking structure was implemented to reduce the amount of time it took to add all the entries while still allowing for correctness in the implementation. 
