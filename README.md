@@ -15,7 +15,7 @@ To run the program, use the following command:
 `-t` refers to the number of threads to test with. Follow the `-t` arguement with the number of threads you would like to test with (default is 4). `-s` changes the number of hash table entries to add per thread (default is 25,000). 
 
 ## First Implementation
-In the `hash_table_v1_add_entry` function, a course-grained locking strucuture was implemented to allow for the correct implementation of concurrency to work. This structure involved locking and unlocking the entire critical section within `hash_table_v1_add_entry`. Thus, a lock was created before the hash-table was accessed to get the correct hash table entry, and it was unlocked and destroyed after the entry was created and added. 
+In the `hash_table_v1_add_entry` function, a course-grained locking strucuture was implemented to allow for the correct implementation of concurrency to work. This structure involved locking and unlocking the entire critical section within `hash_table_v1_add_entry`. Thus, a global lock was created, and before the hash-table was accessed to get the correct hash table entry, and it was unlocked after the entry was created and added. The lock was destroyed in `hash_table_v1_destroy` along with the destruction of the hash table. 
 
 ### Performance
 To test the correctness and implementation of the hash table, the same test was run three times. 
