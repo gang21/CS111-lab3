@@ -25,27 +25,27 @@ To test the correctness and implementation of the hash table, the same test was 
 ```
 Test 1 Results
 ```
-Generation: 72,600 usec
-Hash table base: 362,071 usec
-  - 0 missing
-Hash table v1: 703,576 usec
-  - 0 missing
+# Generation: 72,600 usec
+# Hash table base: 362,071 usec
+#   - 0 missing
+# Hash table v1: 703,576 usec
+#   - 0 missing
 ```
 Test 2 Results
 ```
-Generation: 55,767 usec
-Hash table base: 333,800 usec
-  - 0 missing
-Hash table v1: 689,031 usec
-  - 0 missing
+# Generation: 55,767 usec
+# Hash table base: 333,800 usec
+#   - 0 missing
+# Hash table v1: 689,031 usec
+#   - 0 missing
 ```
 Test 3 Results
 ```
-Generation: 66,960 usec
-Hash table base: 348,512 usec
-  - 0 missing
-Hash table v1: 695,649 usec
-  - 0 missing
+# Generation: 66,960 usec
+# Hash table base: 348,512 usec
+#   - 0 missing
+# Hash table v1: 695,649 usec
+#   - 0 missing
 ```
 There are 0 missing entries in the v1 hash table which means that the implementation of concurrency is correct. However, the time it takes for the v1 implementation is about doubled compared to the base implementation. This is because of the thread overhead with the lock. Since there is only one lock, each thread must share the same lock and only one thread can go through the lock at a time. Thus, even though there are multiple threads running concurrently, there is a bottleneck because of the lock, which causes more overhead and decreases performance time. 
 
