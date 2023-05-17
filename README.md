@@ -76,6 +76,7 @@ Test 2 Results
 ```
 Test 3 Results
 ```
+# Generation: 43,605 usec
 # Hash table base: 85,382 usec
 #   - 0 missing
 # Hash table v2: 23,282 usec
